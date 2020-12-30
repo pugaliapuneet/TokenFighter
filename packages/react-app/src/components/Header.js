@@ -7,8 +7,44 @@ import { Modal, useModal, ModalTransition } from 'react-simple-hook-modal';
 import metamask from '../images/metamask.svg';
 import wallet from '../images/wallet.svg';
 
-const Header = () => {
+const Header = ({
+  address,
+  web3Modal,
+  loadWeb3Modal,
+  logoutOfWeb3Modal,
+}) => {
   const { isModalOpen, openModal, closeModal } = useModal();
+  const modalButtons = [];
+  if (web3Modal) {
+    if (web3Modal.cachedProvider) {
+      modalButtons.push(
+        <Button
+          key="logoutbutton"
+          className='wallet'
+          // style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
+          // shape="round"
+          // size="large"
+          onClick={logoutOfWeb3Modal}
+        >
+          {address}
+        </Button>,
+      );
+    } else {
+      modalButtons.push(
+        <Button
+          key="loginbutton"
+          className='wallet'
+          // style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
+          // shape="round"
+          // size="large"
+          /*type={minimized ? "default" : "primary"}     too many people just defaulting to MM and having a bad time*/
+          onClick={loadWeb3Modal}
+        >
+          Unlock Wallet
+        </Button>,
+      );
+    }
+  }
   return (
     <React.Fragment>
       <button class='play-button' onClick={() => openModal()}>
@@ -51,7 +87,8 @@ const Header = () => {
             Tutorial
           </a>
         </li> */}
-        <button className='wallet'>Unlock Wallet</button>
+        {/* <button className='wallet'>Unlock Wallet</button> */}
+        {modalButtons}
       </ul>
 
       {/* Modal for unlocking the wallet */}

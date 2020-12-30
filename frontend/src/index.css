@@ -270,8 +270,8 @@ a:hover {
   border: 0.5px #ffffff;
 }
 .collect-btns {
-  margin-top: 15px;
-  margin-left: 470px;
+  margin-top: 100px;
+  margin-left: 550px;
 }
 .collect-btns:hover {
   background-color: white;
@@ -279,7 +279,7 @@ a:hover {
 }
 .collect-grid {
   margin-top: 0px;
-  margin-left: 300px;
+  margin-left: 450px;
   image-rendering: auto;
 }
 .modal {

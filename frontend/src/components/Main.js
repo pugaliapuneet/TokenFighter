@@ -11,10 +11,10 @@ const Main = () => {
         <Image className='image' src={logoVisual} alt='logo' />
       </Col>
       <Col>
-        <text className='game-start'>Game Start</text>
-        <text className='control-settings'>Control Settings</text>
-        <text className='network-game'>Network Game (Coming Soon)</text>
-        <text className='recording-info'>Recording info (Coming Soon)</text>
+        <text className='game-start'>game start</text>
+        <text className='control-settings'>control settings</text>
+        <text className='network-game'>network game (coming soon)</text>
+        <text className='recording-info'>recording info (coming soon)</text>
       </Col>
     </Row>
   );

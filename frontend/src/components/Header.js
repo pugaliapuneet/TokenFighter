@@ -25,14 +25,14 @@ const Header = () => {
             Farms
           </a>
         </li>
-        {/* <li class='list-inline collect'>
-          <a class='link' href='/'>
+        <li class='list-inline collect link'>
+          <a class='link' href='/collect'>
             Collect
           </a>
-        </li> */}
-        <Link className='list inline collect link' to='/collect'>
+        </li>
+        {/*<Link className='list inline collect link' to='/collect'>
           Collect
-        </Link>
+  </Link>*/}
 
         <li class='list-inline gov'>
           <a class='link' href='/'>

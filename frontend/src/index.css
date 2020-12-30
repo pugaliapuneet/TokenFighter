@@ -6,8 +6,7 @@ body {
 
 .play-button {
   margin-left: 250px;
-  font-size: medium;
-  margin-top: 20px;
+  font-size: large;
   position: absolute;
   color: white;
   background-color: #10206c;
@@ -32,9 +31,10 @@ body {
 }
 .home {
   position: absolute;
-  margin-left: 325px;
-  margin-top: 15px;
+  margin-left: 400px;
   display: flex;
+  margin-top: -6px;
+  font-size: 25px;
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
@@ -46,14 +46,12 @@ a:hover {
 }
 .farms {
   position: absolute;
-  margin-left: 426px;
-  margin-top: 15px;
-
+  margin-left: 500px;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 25px;
   line-height: 19px;
-  opacity: 1;
+  opacity: 100%;
   pointer-events: none;
   /* cursor: not-allowed; */
   /* identical to box height */
@@ -63,38 +61,34 @@ a:hover {
   text-align: center;
   letter-spacing: 0.05em;
 
-  color: #5a73d6;
+  color: #5A73D6;
 }
 
 .collect {
   position: absolute;
-  margin-left: 532px;
-  margin-top: 15px;
-
+  margin-left: 600px;
+  margin-top: -7px;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 25px;
   line-height: 19px;
   /* identical to box height */
-
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
-
-  color: #5a73d6;
+  color: #5A73D6;
 }
 .collect:hover {
   color: white;
 }
 .gov {
   position: absolute;
-  margin-left: 639px;
-  margin-top: 15px;
+  margin-left: 720px;
 
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 25px;
   line-height: 19px;
   /* identical to box height */
 
@@ -103,19 +97,17 @@ a:hover {
   text-align: center;
   letter-spacing: 0.05em;
 
-  opacity: 0.2;
+  opacity: 100%;
   pointer-events: none;
 
   color: #5a73d6;
 }
 .leaderboard {
   position: absolute;
-  margin-left: 751.6px;
-  margin-top: 15px;
-
+  margin-left: 800px;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 25px;
   line-height: 19px;
   /* identical to box height */
 
@@ -124,34 +116,29 @@ a:hover {
   text-align: center;
   letter-spacing: 0.05em;
 
-  opacity: 0.2;
+  opacity: 100%;
   pointer-events: none;
 
   color: #5a73d6;
 }
 .wallet {
-  margin-left: 929.5px;
-  margin-top: 15px;
+  margin-left: 1100px;
   position: absolute;
-
   color: white;
   background-color: #10206c;
   border: 3px solid #ffffff;
   box-sizing: border-box;
   box-shadow: 0px 0px 10px #0ac4ff;
-
   font-family: PIXymbolsWINmenuW01-Menu;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
   /* identical to box height */
-
   display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.05em;
-
   /* color: #0b1b62; */
 }
 .wallet:hover {
@@ -159,8 +146,8 @@ a:hover {
   color: black;
 }
 .footer {
-  margin-top: 1394px;
-  margin-left: 720px;
+  margin-top: 650px;
+  margin-left: 500px;
   margin-bottom: 1000px;
   margin-right: 676px;
   text-align: center;
@@ -181,8 +168,8 @@ a:hover {
   color: #5a73d6;
 }
 .image {
-  margin-top: 95px;
-  margin-left: 351.67px;
+  margin-top: 55px;
+  margin-left: 450px;
   /* position: relative; */
   /* width: 600px;
   height: 460px;
@@ -193,22 +180,21 @@ a:hover {
 }
 .game-start {
   cursor: pointer;
-  margin-top: 90px;
-  margin-left: 100px;
-
+  margin-top: 5px;
+  margin-left: 150px;
+  font-family: 'VT323', monospace;
   position: absolute;
   width: 155px;
   height: 28px;
   left: 512px;
   top: 412px;
 
-  font-family: Noto Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 32px;
   line-height: 28px;
   text-align: center;
-  letter-spacing: 0.05em;
+  letter-spacing: 2.5px;
 
   color: white;
 
@@ -219,18 +205,17 @@ a:hover {
 }
 .control-settings {
   pointer-events: none;
-  margin-top: 135px;
-  margin-left: 0px;
+  margin-top: 60px;
+  margin-left: 50px;
   position: absolute;
   width: 350px;
   height: 28px;
   left: 512px;
   top: 412px;
-
-  font-family: Noto Mono;
+  font-family: 'VT323', monospace;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 32px;
   line-height: 28px;
   text-align: center;
   letter-spacing: 0.05em;
@@ -241,18 +226,19 @@ a:hover {
 }
 .network-game {
   pointer-events: none;
-  margin-top: 180px;
-  margin-left: 0px;
+  margin-top: 110px;
+  margin-left: 50px;
   position: absolute;
-  width: 350px;
+  width: 400px;
   height: 28px;
   left: 512px;
   top: 412px;
 
-  font-family: 'Noto Mono';
+  font-family: 'VT323', monospace;
+
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 28px;
   text-align: center;
   letter-spacing: 0.05em;
@@ -263,18 +249,18 @@ a:hover {
 }
 .recording-info {
   pointer-events: none;
-  margin-top: 230px;
-  margin-left: 0px;
+  margin-top: 160px;
+  margin-left: 50px;
   position: absolute;
-  width: 350px;
+  width: 400px;
   height: 28px;
   left: 512px;
   top: 412px;
 
-  font-family: Noto Mono;
+
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 28px;
   text-align: center;
   letter-spacing: 0.05em;
@@ -284,7 +270,7 @@ a:hover {
   border: 0.5px #ffffff;
 }
 .collect-btns {
-  margin-top: 150px;
+  margin-top: 15px;
   margin-left: 470px;
 }
 .collect-btns:hover {
@@ -316,4 +302,80 @@ a:hover {
   /* overflow: auto; Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+/*.footer {
+  background-color: #10206c;
+}*/
+.telegram {
+  position: absolute;
+  margin-top: -488px;
+  display: flex;
+  
+  font-size: 25px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #5a73d6;
+}
+.discord {
+  position: absolute;
+  margin-top: -500px;
+  display: flex;
+  margin-left: 125px;
+  font-size: 25px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #5a73d6;
+}
+.twitter {
+  position: absolute;
+  margin-top: -513px;
+  display: flex;
+  margin-left: 240px;
+  font-size: 25px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #5a73d6;
+}
+.medium {
+  position: absolute;
+  margin-top: -526px;
+  display: flex;
+  margin-left: 350px;
+  font-size: 25px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #5a73d6;
+}
+.footer-image {
+  margin-top: 250px;
+  margin-left: 550px;
+  align-items: center;
+  height: 100px;
+  color: #ffffff;
+}
+.footer-lines-1 {
+  color: #A3A3A3;
+  opacity: 20%;
+  margin-left: 550px;
+  font-size: 25px;
+  align-items: center;
+}
+.footer-lines-2 {
+  color: #A3A3A3;
+  opacity: 20%;
+  margin-left: 300px;
+  font-size: 25px;
+  align-items: center;
+}
+.hr-line {
+  color:rgb(0, 0, 0);
+  height: 10px;
 }

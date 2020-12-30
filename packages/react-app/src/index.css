@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+body {
+  font-family: 'VT323', monospace;
+  background-color: #10206c;
+}
+
+.play-button {
+  margin-left: 250px;
+  font-size: medium;
+  margin-top: 20px;
+  position: absolute;
+  color: white;
+  background-color: #10206c;
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px #0ac4ff;
+}
+.play-button:hover {
+  background-color: white;
+  color: black;
+}
+.non-bullet {
+  list-style: none;
+}
+.list-inline {
+  display: inline;
+  padding: 0rem 0.5rem;
+}
+.link {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+.home {
+  position: absolute;
+  margin-left: 325px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+}
+a:hover {
+  color: white;
+}
+.farms {
+  position: absolute;
+  margin-left: 426px;
+  margin-top: 15px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 1;
+  pointer-events: none;
+  /* cursor: not-allowed; */
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #5a73d6;
+}
+
+.collect {
+  position: absolute;
+  margin-left: 532px;
+  margin-top: 15px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #5a73d6;
+}
+.collect:hover {
+  color: white;
+}
+.gov {
+  position: absolute;
+  margin-left: 639px;
+  margin-top: 15px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  opacity: 0.2;
+  pointer-events: none;
+
+  color: #5a73d6;
+}
+.leaderboard {
+  position: absolute;
+  margin-left: 751.6px;
+  margin-top: 15px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  opacity: 0.2;
+  pointer-events: none;
+
+  color: #5a73d6;
+}
+.wallet {
+  margin-left: 929.5px;
+  margin-top: 15px;
+  position: absolute;
+
+  color: white;
+  background-color: #10206c;
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px #0ac4ff;
+
+  font-family: PIXymbolsWINmenuW01-Menu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  /* color: #0b1b62; */
+}
+.wallet:hover {
+  background-color: white;
+  color: black;
+}
+.footer {
+  margin-top: 1394px;
+  margin-left: 720px;
+  margin-bottom: 1000px;
+  margin-right: 676px;
+  text-align: center;
+  position: absolute;
+  width: 44px;
+  height: 17px;
+  /* left: calc(50% - 44px / 2 + 22px);
+  top: calc(50% - 17px / 2 - 72.5px); */
+
+  font-family: VT323;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #5a73d6;
+}
+.image {
+  margin-top: 95px;
+  margin-left: 351.67px;
+  /* position: relative; */
+  /* width: 600px;
+  height: 460px;
+  left: 536px;
+  top: 923px; */
+
+  background: #10206c;
+}
+.game-start {
+  cursor: pointer;
+  margin-top: 90px;
+  margin-left: 100px;
+
+  position: absolute;
+  width: 155px;
+  height: 28px;
+  left: 512px;
+  top: 412px;
+
+  font-family: Noto Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: white;
+
+  border: 0.5px #ffffff;
+}
+.game-start:hover {
+  color: wheat;
+}
+.control-settings {
+  pointer-events: none;
+  margin-top: 135px;
+  margin-left: 0px;
+  position: absolute;
+  width: 350px;
+  height: 28px;
+  left: 512px;
+  top: 412px;
+
+  font-family: Noto Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: white;
+  opacity: 0.5;
+  border: 0.5px #ffffff;
+}
+.network-game {
+  pointer-events: none;
+  margin-top: 180px;
+  margin-left: 0px;
+  position: absolute;
+  width: 350px;
+  height: 28px;
+  left: 512px;
+  top: 412px;
+
+  font-family: 'Noto Mono';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: white;
+  opacity: 0.5;
+  border: 0.5px #ffffff;
+}
+.recording-info {
+  pointer-events: none;
+  margin-top: 230px;
+  margin-left: 0px;
+  position: absolute;
+  width: 350px;
+  height: 28px;
+  left: 512px;
+  top: 412px;
+
+  font-family: Noto Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: white;
+  opacity: 0.5;
+  border: 0.5px #ffffff;
+}
+.collect-btns {
+  margin-top: 150px;
+  margin-left: 470px;
+}
+.collect-btns:hover {
+  background-color: white;
+  color: black;
+}
+.collect-grid {
+  margin-top: 0px;
+  margin-left: 300px;
+  image-rendering: auto;
+}
+.modal {
+  /* position: absolute;
+  /* font-family: ''; */
+  /* font-size: larger;
+  font-weight: initial;
+  background-color: #10206c;
+  text-align: center;
+  display: flex;
+  justify-content: center; */
+
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: -1; /* Sit on top */
+  left: 40;
+  top: 40;
+  width: 50%; /* Full width */
+  height: 50%; /* Full height */
+  /* overflow: auto; Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}

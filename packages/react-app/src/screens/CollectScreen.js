@@ -2,7 +2,7 @@ import React from 'react';
 
 import grid from '../images/grid.svg';
 import { Row, Col, Image, ButtonGroup, Button } from 'react-bootstrap';
-import AllFighters from '../components/AllFighters';
+import {AllFighters, MyFighters} from '../components/Fighters';
 import {  JsonRpcProvider } from "@ethersproject/providers";
 import { useExternalContractLoader } from "../hooks";
 
@@ -26,6 +26,7 @@ const CollectScreen = () => {
         </ButtonGroup>
         <Image src={grid} alt='grid' className='collect-grid' />
         {contract && <AllFighters contract={contract} />}
+        {contract && <MyFighters contract={contract} />}
       </Col>
     </Row>
   );

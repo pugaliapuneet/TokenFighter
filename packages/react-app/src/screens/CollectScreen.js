@@ -2,8 +2,16 @@ import React from 'react';
 
 import grid from '../images/grid.svg';
 import { Row, Col, Image, ButtonGroup, Button } from 'react-bootstrap';
+import AllFighters from '../components/AllFighters';
+import {  JsonRpcProvider } from "@ethersproject/providers";
+import { useExternalContractLoader } from "../hooks";
+
+import { INFURA_ID, DAI_ADDRESS, DAI_ABI } from "../constants";
+
+const mainnetProvider = new JsonRpcProvider("https://kovan.infura.io/v3/"+INFURA_ID)
 
 const CollectScreen = () => {
+  const contract = useExternalContractLoader(mainnetProvider, DAI_ADDRESS, DAI_ABI);
   return (
     <Row>
       <Col>
@@ -17,6 +25,7 @@ const CollectScreen = () => {
           {/* <Button>Right</Button> */}
         </ButtonGroup>
         <Image src={grid} alt='grid' className='collect-grid' />
+        {contract && <AllFighters contract={contract} />}
       </Col>
     </Row>
   );

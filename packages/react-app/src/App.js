@@ -7,7 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import Footer from './components/Footer';
 import CollectScreen from './screens/CollectScreen';
 import { ModalProvider } from 'react-simple-hook-modal';
-import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
+import { Web3Provider } from "@ethersproject/providers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
@@ -44,14 +44,6 @@ const logoutOfWeb3Modal = async () => {
     window.location.reload();
   }, 1);
 };
-/*
-// 🏠 Your local provider is usually pointed at your local blockchain
-const localProviderUrl = "http://localhost:8545"; // for xdai: https://dai.poa.network
-// as you deploy to other networks you can set REACT_APP_PROVIDER=https://dai.poa.network in packages/react-app/.env
-const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
-if(DEBUG) console.log("🏠 Connecting to provider:", localProviderUrlFromEnv);
-const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
-*/
 const App = () => {
   const [injectedProvider, setInjectedProvider] = useState();
 

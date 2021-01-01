@@ -72,11 +72,11 @@ const App = () => {
           logoutOfWeb3Modal={logoutOfWeb3Modal}
         />
       </ModalProvider>
-      <main>
+      <main className="mb-3">
         <Route exact path='/' component={HomeScreen} />
         <Route path='/collect' component={CollectScreen} />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 };

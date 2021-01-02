@@ -324,6 +324,16 @@ const FighterLeft = ({contract, hash}) => {
     </div>;
 }
 
+const getFrameClass = (RarityLevel) => {
+    if(RarityLevel === 'Godlike' || RarityLevel === 'Legendary'){
+        return ' gold_white_bg ';
+    }else if(RarityLevel === 'Rare'){
+        return ' blue_white_bg ';
+    }else{
+        return ' grey_white_bg ';
+    }
+}
+
 export function AllFighters({contract}) {
     return (
         <Row className="mx-0">
@@ -332,7 +342,8 @@ export function AllFighters({contract}) {
                     const {RarityLevel, MiningPower, image, ipfs_hash, name} = element;
                     return (
                         <Col xs={4} key={ipfs_hash} className="mt-5 mb-3">
-                                <Card className="rounded-0 border-light gold_gradient" style={{ backgroundColor : '#3A3422', borderWidth : '3px', position : 'relative' }}>
+                            <Card className={"rounded-0 " + getFrameClass(RarityLevel) } style={{backgroundColor : 'transparent' }}>
+                                <div className="m-3"  style={{ position : 'relative'}}>
                                     <div style={{ marginTop : '-40px' }}>
                                         <img src={image} className="w-100" alt={name+" image"}/>
                                     </div>
@@ -342,15 +353,16 @@ export function AllFighters({contract}) {
                                     </div>
                                     <div className="mb-5">
                                         <ul className="list-group list-group-horizontal w-100 text-center">
-                                            <li className="list-group-item rounded-0 bg-transparent w-50 text-white" style={{ border : '1px solid rgba(255, 255, 255, 0.1)' }}> <span style={{ letterSpacing: '0.02em', color: '#FF00E6', textShadow: '0px 0px 4px rgba(255, 0, 230, 0.8)', fontSize: '25px'}}>{MiningPower*100}</span> Bytes</li>
-                                            <li className="list-group-item rounded-0 bg-transparent w-50 text-white" style={{ border : '1px solid rgba(255, 255, 255, 0.1)' }}><FighterLeft contract={contract} hash={ipfs_hash} /></li>
+                                            <li className="list-group-item rounded-0 bg-transparent w-50 text-white border-left-0" style={{ border : '1px solid rgba(255, 255, 255, 0.1)' }}> <span style={{ letterSpacing: '0.02em', color: '#FF00E6', textShadow: '0px 0px 4px rgba(255, 0, 230, 0.8)', fontSize: '25px'}}>{MiningPower*100}</span> Bytes</li>
+                                            <li className="list-group-item rounded-0 bg-transparent w-50 text-white border-right-0" style={{ border : '1px solid rgba(255, 255, 255, 0.1)' }}><FighterLeft contract={contract} hash={ipfs_hash} /></li>
                                         </ul>
                                     </div>
-                                    <div className="text-center w-100" style={{ position : 'absolute', bottom: '-21px' }}>
-                                        <Button variant="outline-light" className="rounded-0" style={{ border: '3px solid #ffffff', boxShadow : '0px 0px 10px #0AC4FF', backgroundColor : '#000000' }}>Collect</Button>
+                                    <div className="text-center w-100" style={{ position : 'absolute', bottom: '-25px' }}>
+                                        <Button variant="dark" className="rounded-0 px-4 py-1" style={{ border: '3px solid #ffffff', boxShadow : '0px 0px 10px #0AC4FF', backgroundColor : '#000000' }}>Collect</Button>
                                     </div>
-                                </Card>
-                            </Col>
+                                </div>
+                            </Card>
+                        </Col>
                     );
                 })
             }
@@ -388,16 +400,35 @@ export function MyFighters({contract}) {
     useEffect(() => get(), []);
     
     return loading ? <div>Loading...</div> : (
-        myFighters.map(element => {
-            const {RarityLevel, MiningPower, image, ipfs_hash, count, total} = element;
-            return (
-                <Card key={ipfs_hash}>
-                    <Card.Img variant="top" src={image} />
-                    <p>Rarity Level: {RarityLevel}</p>
-                    <p>Mining Power: {MiningPower}</p>
-                    <p>Count {count}/{total}</p>
-                </Card>
-            );
-        })
+        <Row className="mx-0">
+            {
+                myFighters.map(element => {
+                    const {RarityLevel, MiningPower, image, ipfs_hash, count, total, name} = element;
+                    return (
+                        <Col xs={4} key={ipfs_hash} className="mt-5 mb-3">
+                            <Card className={"rounded-0 " + getFrameClass(RarityLevel) } style={{backgroundColor : 'transparent' }}>
+                                <div className="m-3"  style={{ position : 'relative'}}>
+                                    <div style={{ marginTop : '-40px' }}>
+                                        <img src={image} className="w-100" alt={name+" image"}/>
+                                    </div>
+                                    <div className="text-center" style={{ color : '#414141', letterSpacing: '0.1em' }}>
+                                        <p>Rarity Level: {RarityLevel} <br/>
+                                        Mining Power: {MiningPower}</p>
+                                    </div>
+                                    <div className="mb-5">
+                                        <ul className="list-group list-group-horizontal w-100 text-center">
+                                            <li className="list-group-item rounded-0 bg-transparent w-100 text-white border-left-0 border-right-0" style={{ border : '1px solid rgba(255, 255, 255, 0.1)' }}> Count {count}/{total} </li>
+                                        </ul>
+                                    </div>
+                                    <div className="text-center w-100" style={{ position : 'absolute', bottom: '-25px' }}>
+                                        <Button variant="dark" className="rounded-0 px-4 py-1" style={{ border: '3px solid #ffffff', boxShadow : '0px 0px 10px #0AC4FF', backgroundColor : '#000000' }}>Collect</Button>
+                                    </div>
+                                </div>
+                            </Card>
+                        </Col>
+                    );
+                })
+            }
+        </Row>
     );
 }

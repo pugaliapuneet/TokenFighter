@@ -61,7 +61,7 @@ const Header = ({
             Play
           </Button>
         </Col>
-        <Col> 
+        <Col className="d-flex align-items-center justify-content-center"> 
           <ul className='list-group list-group-horizontal bg-transparent header_navbar'>
             <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/" ? ' active ' : '')}>
               <a class='link' href='/'>

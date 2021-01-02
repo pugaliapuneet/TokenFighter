@@ -144,3 +144,28 @@ footer{
   background-size: 100% 100%;
   overflow: none;
 }
+
+.wallet_table{
+  border: 2px solid #5A73D6;
+  box-sizing: border-box;
+  box-shadow: 6px 15px 0px rgba(0, 0, 0, 0.4);
+  background: #10206C;
+}
+
+/* .claim_byte_btn{
+  border: 2px solid #5A73D6;
+  background: #10206C;
+  color: #5A73D6;
+} */
+
+.claim_byte_btn{
+  background: linear-gradient(180deg, #063A73 0%, #FF00A5 100%);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0px 0px 8px #FF00E6;
+}
+
+.claim_byte_btn:hover{
+  background: linear-gradient(180deg, #063A73 0%, #FF00A5 100%);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0px 0px 8px #FF00E6;
+}

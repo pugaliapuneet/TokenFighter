@@ -333,8 +333,9 @@ const getFrameClass = (RarityLevel) => {
         return ' grey_white_bg ';
     }
 }
+export function AllFighters({contract, getFighterCount}) {
 
-export function AllFighters({contract}) {
+    getFighterCount(Object.keys(Fighters).length);
     return (
         <Row className="mx-0">
             {
@@ -370,15 +371,17 @@ export function AllFighters({contract}) {
     );
 }
 
-export function MyFighters({contract}) {
+export function MyFighters({contract, getMyCollectionCount}) {
     const [loading, setLoading] = useState(true);
     const [myFighters, setMyFighters] = useState([]);
     const get = async () => {
         const bal = (await contract.functions.balanceOf("0x53d885CaE2b7Cb1738E4e36F29c365c5e4383dB0"))[0];
         let counts = {};
+        let collectionCount = 0;
         for (let i = 0; i < bal.toNumber(); i++) {
             const tokenId = (await contract.functions.tokenOfOwnerByIndex("0x53d885CaE2b7Cb1738E4e36F29c365c5e4383dB0", i))[0];
             const hash = (await contract.functions.tokenTKFR(tokenId))[0];
+            collectionCount++;
             if(!counts[hash])
                 counts[hash] = 1;
             else
@@ -393,6 +396,7 @@ export function MyFighters({contract}) {
                 total: total.toNumber() === 999999 ? '∞' : total.toNumber()
             });
         }
+        getMyCollectionCount(collectionCount);
         setMyFighters(myFighters);
         setLoading(false);
     }
@@ -420,9 +424,9 @@ export function MyFighters({contract}) {
                                             <li className="list-group-item rounded-0 bg-transparent w-100 text-white border-left-0 border-right-0" style={{ border : '1px solid rgba(255, 255, 255, 0.1)' }}> Count {count}/{total} </li>
                                         </ul>
                                     </div>
-                                    <div className="text-center w-100" style={{ position : 'absolute', bottom: '-25px' }}>
+                                    {/* <div className="text-center w-100" style={{ position : 'absolute', bottom: '-25px' }}>
                                         <Button variant="dark" className="rounded-0 px-4 py-1" style={{ border: '3px solid #ffffff', boxShadow : '0px 0px 10px #0AC4FF', backgroundColor : '#000000' }}>Collect</Button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </Card>
                         </Col>

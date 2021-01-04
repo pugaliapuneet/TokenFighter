@@ -312,7 +312,7 @@ const FighterLeft = ({contract, hash}) => {
     const getCount = async () => {
         const count = (await contract.functions.tkfrTokenCount(hash))[0];
         const total = (await contract.functions.tkfrInfoByTKFRUrl(hash))[4];
-        const left = total === 999999 ? -1 : total.sub(count).toNumber();
+        const left = total.toNumber() === 999999 ? -1 : total.sub(count).toNumber();
         setLeft(left);
         setLoading(false);
     }

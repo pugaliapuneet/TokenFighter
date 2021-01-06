@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/TokenFighter/static/css/main.cb0d196b.chunk.css",
+    "main.js": "/TokenFighter/static/js/main.f21a0d5a.chunk.js",
+    "main.js.map": "/TokenFighter/static/js/main.f21a0d5a.chunk.js.map",
+    "runtime-main.js": "/TokenFighter/static/js/runtime-main.2feeca1e.js",
+    "runtime-main.js.map": "/TokenFighter/static/js/runtime-main.2feeca1e.js.map",
+    "static/css/2.2a264673.chunk.css": "/TokenFighter/static/css/2.2a264673.chunk.css",
+    "static/js/2.d63afb65.chunk.js": "/TokenFighter/static/js/2.d63afb65.chunk.js",
+    "static/js/2.d63afb65.chunk.js.map": "/TokenFighter/static/js/2.d63afb65.chunk.js.map",
+    "index.html": "/TokenFighter/index.html",
+    "static/css/2.2a264673.chunk.css.map": "/TokenFighter/static/css/2.2a264673.chunk.css.map",
+    "static/css/main.cb0d196b.chunk.css.map": "/TokenFighter/static/css/main.cb0d196b.chunk.css.map",
+    "static/js/2.d63afb65.chunk.js.LICENSE.txt": "/TokenFighter/static/js/2.d63afb65.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/TokenFighter/static/media/greyWhiteHover.99d5709c.svg",
+    "static/media/grid.c11e0931.svg": "/TokenFighter/static/media/grid.c11e0931.svg",
+    "static/media/logoVisual.385e2cc4.svg": "/TokenFighter/static/media/logoVisual.385e2cc4.svg",
+    "static/media/metamask.77aab9ef.svg": "/TokenFighter/static/media/metamask.77aab9ef.svg",
+    "static/media/save.5b339633.svg": "/TokenFighter/static/media/save.5b339633.svg",
+    "static/media/save_middle.a327f8e2.svg": "/TokenFighter/static/media/save_middle.a327f8e2.svg",
+    "static/media/wallet.ee869ce3.svg": "/TokenFighter/static/media/wallet.ee869ce3.svg",
+    "static/media/whitelogo.8f866264.svg": "/TokenFighter/static/media/whitelogo.8f866264.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2feeca1e.js",
+    "static/css/2.2a264673.chunk.css",
+    "static/js/2.d63afb65.chunk.js",
+    "static/css/main.cb0d196b.chunk.css",
+    "static/js/main.f21a0d5a.chunk.js"
+  ]
+}

@@ -63,7 +63,7 @@ const App = () => {
   }, [loadWeb3Modal]);
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <ModalProvider backdropClassName='#10206c'>
         <Header
           address={address}

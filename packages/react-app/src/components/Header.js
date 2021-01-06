@@ -84,9 +84,9 @@ const Header = ({
         <Col className="d-flex align-items-center justify-content-center"> 
           <ul className='list-group list-group-horizontal bg-transparent header_navbar'>
             <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/" ? ' active ' : '')}>
-              <a className='link' href='/'>
+              <Link className='link' to='/'>
                 Home
-              </a>
+              </Link>
             </li>
             <li className='list-group-item bg-transparent border-0 disabled'>
               <a className='link' href='/'>

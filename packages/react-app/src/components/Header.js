@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { Row, Col, Image, Button } from 'react-bootstrap';
+import { Row, Col, Image, Button, Dropdown } from 'react-bootstrap';
 import { Modal, useModal, ModalTransition } from 'react-simple-hook-modal';
 import {useLocation } from 'react-router-dom';
 
 import metamask from '../images/metamask.svg';
 import wallet from '../images/wallet.svg';
+import save from '../images/save.svg'
 
 const Header = ({
   address,
@@ -21,18 +22,37 @@ const Header = ({
   if (web3Modal) {
     if (web3Modal.cachedProvider) {
       modalButtons.push(
-        <Button
-          key="logoutbutton"
-          variant="outline-light"
-          className='rounded-0 px-4 py-1 '
-          style={{ borderWidth : '3px', 'boxShadow' : '0px 0px 10px #0AC4FF' }}
-          // style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
-          // shape="round"
-          // size="large"
-          onClick={logoutOfWeb3Modal}
-        >
-          {address}
-        </Button>,
+        <Dropdown>
+          <Dropdown.Toggle 
+            menuAlign="right"
+            variant="outline-light"
+            className='rounded-0 px-4 py-1 '
+            style={{ borderWidth : '3px', 'boxShadow' : '0px 0px 10px #0AC4FF', textOverflow: 'ellipsis', overflow: 'hidden', width : '150px'}}
+          >
+            {address}
+          </Dropdown.Toggle>
+          <Dropdown.Menu align="right" className="mt-2 myaccount_dropdown rounded-0 p-0">
+            <Dropdown.Item className="text p-4 item disabled">
+              My Account
+            </Dropdown.Item>
+            <Dropdown.Item className="item p-0 disabled">
+              <Row className="m-0 text-white">
+                <Col className="py-3 text-center" sm={6} style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <span style={{ letterSpacing: '0.02em', color: '#FF00E6', textShadow: '0px 0px 4px rgba(255, 0, 230, 0.8)', fontSize: '25px'}}>0.00</span> TK
+                </Col>
+                <Col className="py-3 text-center" sm={6} style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <img src={save} alt="save" style={{ marginTop: '-8px' }}/> <span style={{ letterSpacing: '0.02em', color: '#FF00E6', textShadow: '0px 0px 4px rgba(255, 0, 230, 0.8)', fontSize: '25px'}}>{0.00}</span> Bytes
+                </Col>
+              </Row>
+            </Dropdown.Item>
+            <Dropdown.Item className="text p-4 item" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+              View on Etherscan
+            </Dropdown.Item>
+            <Dropdown.Item className="text p-4 item" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }} key="logoutbutton" onClick={logoutOfWeb3Modal}>
+              Sign Out Wallet
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>,
       );
     } else {
       modalButtons.push(

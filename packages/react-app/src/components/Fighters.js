@@ -343,7 +343,7 @@ export function AllFighters({contract, byteBal, buyFighter, getFighterCount}) {
                     const {RarityLevel, MiningPower, image, ipfs_hash, name} = element;
                     return (
                         <Col xs={4} key={ipfs_hash} className="mt-5 mb-3">
-                            <Card className={"rounded-0 " + getFrameClass(RarityLevel) } style={{backgroundColor : 'transparent' }}>
+                            <Card className={"rounded-0 border-0" + getFrameClass(RarityLevel) } style={{backgroundColor : 'transparent' }}>
                                 <div className="m-3"  style={{ position : 'relative'}}>
                                     <div style={{ marginTop : '-40px' }}>
                                         <img src={image} className="w-100" alt={name+" image"}/>

@@ -7,7 +7,7 @@ body {
   padding: 0;
 }
 
-.modal {
+.modal1 {
   /* position: absolute;
   /* font-family: ''; */
   /* font-size: larger;
@@ -182,4 +182,80 @@ footer{
   border-color: rgba(248,249,250,.4);
   color: rgba(248,249,250,.4);
   box-shadow : none;
+}
+
+.claim_modal{
+  background: #10206C;
+  border: 2px solid #5A73D6;
+  box-sizing: border-box;
+  box-shadow: 12px 30px 0px rgba(0, 0, 0, 0.4);
+}
+
+.claim_modal .modal-header{
+  padding: 24px;
+  color: #FBFCFF;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.claim_modal .modal-title{
+  font-family: Noto Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: #FBFCFF;
+}
+
+.claim_modal .close{
+  color: #FBFCFF!important;
+}
+
+.claim_modal .title{
+  font-family: Noto Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: #5A73D6;
+}
+
+.claim_modal .value{
+  font-family: PIXymbolsWINmenuW01-Menu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.claim_modal .claim_btn{
+  background: #10206C;
+  border: 3px solid #FFFFFF;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px #0AC4FF;
+  color: white;
+}
+
+.myaccount_dropdown{
+  background: #10206C;
+  border: 2px solid #5A73D6;
+  box-sizing: border-box;
+  box-shadow: 6px 15px 0px rgba(0, 0, 0, 0.4);
+  width: 320px;
+}
+
+.myaccount_dropdown .text{
+  font-family: Noto Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #5A73D6;
+}
+
+.myaccount_dropdown .item:hover{
+  background-color: unset;
 }

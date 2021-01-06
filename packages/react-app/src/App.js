@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Container, Modal } from 'react-bootstrap';
+// import { Container, Modal } from 'react-bootstrap';
 
 import Header from './components/Header';
 import HomeScreen from './screens/HomeScreen';
@@ -13,7 +13,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
 import { useUserProvider } from "./hooks";
 
-import { INFURA_ID, DAI_ADDRESS, DAI_ABI } from "./constants";
+import { INFURA_ID } from "./constants";
 
 /*
   Web3 modal helps us "connect" external wallets:
@@ -74,7 +74,9 @@ const App = () => {
       </ModalProvider>
       <main className="mb-3">
         <Route exact path='/' component={HomeScreen} />
-        <Route path='/collect' component={CollectScreen} />
+        <Route path='/collect'>
+          <CollectScreen userProvider={userProvider} address={address}/>
+        </Route>
       </main>
       <Footer />
     </Router>

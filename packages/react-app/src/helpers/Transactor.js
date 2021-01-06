@@ -8,7 +8,7 @@ import Notify from "bnc-notify";
 // it is basically just a wrapper around BlockNative's wonderful Notify.js
 // https://docs.blocknative.com/notify
 
-export default function Transactor(provider, gasPrice, etherscan) {
+export default function Transactor(provider, gasPrice, txHandler, etherscan) {
   if (typeof provider !== "undefined") {
     // eslint-disable-next-line consistent-return
     return async tx => {
@@ -20,9 +20,7 @@ export default function Transactor(provider, gasPrice, etherscan) {
         system: "ethereum",
         networkId: network.chainId,
         // darkMode: Boolean, // (default: false)
-        transactionHandler: txInformation => {
-          console.log("HANDLE TX", txInformation);
-        },
+        transactionHandler: txHandler,
       };
       const notify = Notify(options);
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url(//db.onlinewebfonts.com/c/de28cb13c2675e99dae4ef5fc25e316e?family=PIXymbolsWINmenuW01-Menu);
 body {
-  font-family: 'VT323', monospace;
+  font-family: 'PIXymbolsWINmenuW01-Menu', monospace;
   background-color: #10206c;
   margin: 0; 
   padding: 0;
@@ -159,6 +160,8 @@ footer{
 } */
 
 .claim_byte_btn{
+  color: #FFFFFF;
+  min-width: 9.5625rem;
   background: linear-gradient(180deg, #063A73 0%, #FF00A5 100%);
   border: 2px solid #FFFFFF;
   box-shadow: 0px 0px 8px #FF00E6;
@@ -168,4 +171,15 @@ footer{
   background: linear-gradient(180deg, #063A73 0%, #FF00A5 100%);
   border: 2px solid #FFFFFF;
   box-shadow: 0px 0px 8px #FF00E6;
+}
+
+.claim-fighter {
+  border: solid #ffffff;
+  box-shadow : 0px 0px 10px #0AC4FF;
+}
+
+.claim-fighter[disabled], .claim-fighter[disabled]:hover {
+  border-color: rgba(248,249,250,.4);
+  color: rgba(248,249,250,.4);
+  box-shadow : none;
 }

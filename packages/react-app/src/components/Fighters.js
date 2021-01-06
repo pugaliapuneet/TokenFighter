@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import contracts from '../contracts/contracts';
-import {Col, Row, Button} from 'react-bootstrap';
+import { Button } from 'antd';
+import {Col, Row} from 'react-bootstrap';
 
 const Fighters = {
     "QmZwW6aA3UspgxBXiU66dtECbmN68gWLuxAyqYk3SLECRD": {
@@ -116,7 +116,7 @@ const Fighters = {
     },
     "QmdjpzgYhCT4dzK9xC1bissY2hEPsStBgXpuko4i4cyjh3": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Yasuo",
         "display": "Yasuo",
         "ipfs_hash": "QmdjpzgYhCT4dzK9xC1bissY2hEPsStBgXpuko4i4cyjh3",
@@ -126,7 +126,7 @@ const Fighters = {
     },
     "QmXPT5ZCvVU2B9fcH5yWsjiEYSdrWHnjQ4aeJdjQsZLg57": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Robin",
         "display": "Robin",
         "ipfs_hash": "QmXPT5ZCvVU2B9fcH5yWsjiEYSdrWHnjQ4aeJdjQsZLg57",
@@ -136,7 +136,7 @@ const Fighters = {
     },
     "QmQMoCbj4PChkafLez9XNPwQDViYyLQDmZLHNtTnTgAi9X": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Magic",
         "display": "Magic",
         "ipfs_hash": "QmQMoCbj4PChkafLez9XNPwQDViYyLQDmZLHNtTnTgAi9X",
@@ -146,7 +146,7 @@ const Fighters = {
     },
     "QmW35mCBQgdcdyWzUFXit7mBwUMWURSeWju69S2xFRwkJm": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Chopper",
         "display": "Chopper",
         "ipfs_hash": "QmW35mCBQgdcdyWzUFXit7mBwUMWURSeWju69S2xFRwkJm",
@@ -156,7 +156,7 @@ const Fighters = {
     },
     "QmXBXHkMPqbAmZRZro2xkjS6ahauBgvkKXVDpSqPmQC1cp": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Jarvan",
         "display": "Jarvan",
         "ipfs_hash": "QmXBXHkMPqbAmZRZro2xkjS6ahauBgvkKXVDpSqPmQC1cp",
@@ -166,7 +166,7 @@ const Fighters = {
     },
     "QmVoTkiFCW6v2mwn9FCBYV97AFnLtxqXMDLJz342bDz4WL": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Shen",
         "display": "Shen",
         "ipfs_hash": "QmVoTkiFCW6v2mwn9FCBYV97AFnLtxqXMDLJz342bDz4WL",
@@ -176,7 +176,7 @@ const Fighters = {
     },
     "QmXe5MMHxQr7ggv86UfXeNuReCSjj7yCDFpoVRF1jYcQpU": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Lee",
         "display": "Lee",
         "ipfs_hash": "QmXe5MMHxQr7ggv86UfXeNuReCSjj7yCDFpoVRF1jYcQpU",
@@ -186,7 +186,7 @@ const Fighters = {
     },
     "QmTM4PMvqZeyBoF3aR9Q2RU3BryXXiyFdkRadKtUzXwzj3": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Garen",
         "display": "Garen",
         "ipfs_hash": "QmTM4PMvqZeyBoF3aR9Q2RU3BryXXiyFdkRadKtUzXwzj3",
@@ -196,7 +196,7 @@ const Fighters = {
     },
     "Qmai7KBpVspy1dRgLvZHEHn25GnnKoo3tKyE5MSgyBYRxR": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "White",
         "display": "White",
         "ipfs_hash": "Qmai7KBpVspy1dRgLvZHEHn25GnnKoo3tKyE5MSgyBYRxR",
@@ -206,7 +206,7 @@ const Fighters = {
     },
     "Qmf4Mw8qJxoJPxnFX19WR9PLnqY8C8uttBXJq2yo99iEVQ": {
         RarityLevel: "Extraordinary",
-        MiningPower: 18.75,
+        MiningPower: 1,
         "name": "Mars",
         "display": "Mars",
         "ipfs_hash": "Qmf4Mw8qJxoJPxnFX19WR9PLnqY8C8uttBXJq2yo99iEVQ",
@@ -333,9 +333,9 @@ const getFrameClass = (RarityLevel) => {
         return ' grey_white_bg ';
     }
 }
-export function AllFighters({contract, getFighterCount}) {
-
-    getFighterCount(Object.keys(Fighters).length);
+export function AllFighters({contract, byteBal, buyFighter, getFighterCount}) {
+    const [collectLoading, setCollectLoading] = useState(false);
+    useEffect(() => getFighterCount(Object.keys(Fighters).length));
     return (
         <Row className="mx-0">
             {
@@ -359,7 +359,14 @@ export function AllFighters({contract, getFighterCount}) {
                                         </ul>
                                     </div>
                                     <div className="text-center w-100" style={{ position : 'absolute', bottom: '-25px' }}>
-                                        <Button variant="dark" className="rounded-0 px-4 py-1" style={{ border: '3px solid #ffffff', boxShadow : '0px 0px 10px #0AC4FF', backgroundColor : '#000000' }}>Collect</Button>
+                                        <Button 
+                                            type="primary"
+                                            className="claim-fighter border-3 rounded-0 px-4 py-0"
+                                            style={{ borderWidth: '3px', backgroundColor : '#000000' }}
+                                            disabled={byteBal<MiningPower*100}
+                                            onClick={() => buyFighter(ipfs_hash, setCollectLoading)}
+                                            loading={collectLoading}
+                                        >Collect</Button>
                                     </div>
                                 </div>
                             </Card>
@@ -371,15 +378,15 @@ export function AllFighters({contract, getFighterCount}) {
     );
 }
 
-export function MyFighters({contract, getMyCollectionCount}) {
+export function MyFighters({contract, address, getMyCollectionCount}) {
     const [loading, setLoading] = useState(true);
     const [myFighters, setMyFighters] = useState([]);
     const get = async () => {
-        const bal = (await contract.functions.balanceOf("0x53d885CaE2b7Cb1738E4e36F29c365c5e4383dB0"))[0];
+        const bal = (await contract.functions.balanceOf(address))[0];
         let counts = {};
         let collectionCount = 0;
         for (let i = 0; i < bal.toNumber(); i++) {
-            const tokenId = (await contract.functions.tokenOfOwnerByIndex("0x53d885CaE2b7Cb1738E4e36F29c365c5e4383dB0", i))[0];
+            const tokenId = (await contract.functions.tokenOfOwnerByIndex(address, i))[0];
             const hash = (await contract.functions.tokenTKFR(tokenId))[0];
             collectionCount++;
             if(!counts[hash])
@@ -401,7 +408,7 @@ export function MyFighters({contract, getMyCollectionCount}) {
         setLoading(false);
     }
 
-    useEffect(() => get(), []);
+    useEffect(() => get());
     
     return loading ? <div>Loading...</div> : (
         <Row className="mx-0">

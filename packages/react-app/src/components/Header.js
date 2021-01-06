@@ -64,27 +64,27 @@ const Header = ({
         <Col className="d-flex align-items-center justify-content-center"> 
           <ul className='list-group list-group-horizontal bg-transparent header_navbar'>
             <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/" ? ' active ' : '')}>
-              <a class='link' href='/'>
+              <a className='link' href='/'>
                 Home
               </a>
             </li>
             <li className='list-group-item bg-transparent border-0 disabled'>
-              <a class='link' href='/'>
+              <a className='link' href='/'>
                 Farms
               </a>
             </li>
             <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/collect" ? ' active ' : '')}>
-              <Link class='link' to='/collect'>
+              <Link className='link' to='/collect'>
                 Collect
               </Link>
             </li>
             <li className='list-group-item bg-transparent border-0 disabled'>
-              <a class='link' href='/'>
+              <a className='link' href='/'>
                 Gov
               </a>
             </li>
             <li className='list-group-item bg-transparent border-0 disabled'>
-              <a class='link' href='/'>
+              <a className='link' href='/'>
                 Leaderoard
               </a>
             </li>

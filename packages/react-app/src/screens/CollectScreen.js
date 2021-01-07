@@ -26,6 +26,7 @@ const CollectScreen = ({userProvider, address}) => {
   const [myCollectionCount, setMyCollectionCount] = useState(0);
   const [lastSigned, setLastSigned] = useState(0);
   const [byteBal, setByteBal] = useState(0);
+  const [totalSupply, setTotalSupply] = useState(0);
   const [claimLoading, setClaimLoading] = useState(false);
   const [claimModal, setClaimModal] = useState(false);
 
@@ -35,20 +36,19 @@ const CollectScreen = ({userProvider, address}) => {
   
   const init = async () => {
     if(contract && address){
-      const bal = (await contract.functions.balanceOf(address))[0];
-      setMyCollectionCount(bal.toNumber());
+      contract.functions.balanceOf(address).then(bal => {
+        setMyCollectionCount(bal[0].toNumber());
+      });
     }
     if (TKMainContract && address) {
+      const timestamp = (await TKMainContract.functions.lastSigned(address))[0];
+      setLastSigned(timestamp.toNumber());
       const byteBal = (await TKMainContract.functions.balanceOf(address))[0];
       console.log("Byte Bal: ", byteBal.toNumber()/100000000);
       setByteBal(byteBal.toNumber()/100000000);
       const totalSupply = (await TKMainContract.functions.totalSupply())[0];
       console.log("totalSupply", totalSupply.toNumber());
-      const earned = (await TKMainContract.functions.earned(address))[0];
-      console.log("earned", earned.toNumber());
-      const timestamp = (await TKMainContract.functions.lastSigned(address))[0];
-      setLastSigned(timestamp.toNumber());
-      // console.log("Time left", Math.floor(new Date().getTime()/1000.0) - );
+      setTotalSupply((totalSupply.toNumber()/100000000).toFixed(2));
     }
   }
 
@@ -61,8 +61,9 @@ const CollectScreen = ({userProvider, address}) => {
   };
 
   const txHandler = txInformation => {
-    console.log(txInformation.transaction.status);
+    console.log("TX STATUS ", txInformation.transaction.status);
     if(txInformation.transaction.status === "confirmed") {
+      console.log("TX Confirmed");
       init();
     }
   }
@@ -90,9 +91,11 @@ const CollectScreen = ({userProvider, address}) => {
     setClaimModal(false);
   }
 
+  const nextSignInTime = (lastSigned + 86400)*1000;
+
   return (
     <div style={{ backgroundImage: "url(" + grid + ")", backgroundRepeat: 'no-repeat', backgroundPosition: 'center top' }}>
-      <Row className="mx-0 mt-5" >
+      {address && <Row className="mx-0 mt-5" >
         <Col className="text-center" md={{ span: 6, offset: 3 }}>
           <div className="wallet_table">
               <Row className="px-4 py-3">
@@ -102,20 +105,9 @@ const CollectScreen = ({userProvider, address}) => {
                 <Col className="d-flex align-items-center justify-content-end" md={{ span: 3, offset: 6 }}>
                     <Button
                       className='claim_byte_btn rounded-0 px-3'
-                      // onClick={doTrans}
                       onClick={showClaimModal}
-                      disabled={(lastSigned + 86400)*1000 > Date.now()}
-                      loading={claimLoading}
                     >
-                      <span>Claim Bytes</span>
-                      <br/>
-                      {(lastSigned + 86400)*1000 > Date.now() && <Countdown 
-                        date={(lastSigned + 86400)*1000}
-                        daysInHours={true}
-                        intervalDelay={0}
-                        precision={3}
-                        onComplete={() => setLastSigned(lastSigned)}
-                      />}
+                      Claim Bytes
                     </Button>
                 </Col>
               </Row>
@@ -132,7 +124,7 @@ const CollectScreen = ({userProvider, address}) => {
               </Row>
           </div>
         </Col>
-      </Row>
+      </Row>}
       <Row className="m-0 " >
         <Col className="text-center" md={{ span: 4, offset: 4 }}>
           <ButtonGroup className='mt-5 mb-2'>
@@ -164,7 +156,7 @@ const CollectScreen = ({userProvider, address}) => {
               Balance:
             </Col>
             <Col sm={6} className="text-right value d-flex align-items-center justify-content-end">
-              150.00
+              {byteBal.toFixed(2)}
             </Col>
           </Row>
           <Row className="pb-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
@@ -172,7 +164,7 @@ const CollectScreen = ({userProvider, address}) => {
               Unclaimed:
             </Col>
             <Col sm={6} className="text-right value d-flex align-items-center justify-content-end">
-              100 / &nbsp;<span style={{ color : '#A3A3A3' }}>23.59.59</span>
+              {nextSignInTime > Date.now() ? "0.00" : "100.00"}
             </Col>
           </Row>
           <Row className="mt-4 mb-2">
@@ -180,7 +172,7 @@ const CollectScreen = ({userProvider, address}) => {
               Total Bytes used:
             </Col>
             <Col sm={6} className="text-right value d-flex align-items-center justify-content-end">
-              150.00
+              1,134,320.00
             </Col>
           </Row>
           <Row className="pb-4">
@@ -188,11 +180,27 @@ const CollectScreen = ({userProvider, address}) => {
               Total Bytes claimed:
             </Col>
             <Col sm={6} className="text-right value d-flex align-items-center justify-content-end">
-              100 / &nbsp;<span style={{ color : '#A3A3A3' }}>23.59.59</span>
+              {totalSupply}
             </Col>
           </Row>
           <div className="d-flex justify-content-center align-items-middle p-3">
-            <Button variant="outline-light" className="claim_btn" onClick={doTrans}>Claim</Button>
+            <Button
+              variant="outline-light"
+              className="claim_btn"
+              onClick={doTrans}
+              disabled={nextSignInTime > Date.now()}
+              loading={claimLoading}
+            >
+              Claim
+              &nbsp;
+              {nextSignInTime > Date.now() && <Countdown 
+                date={nextSignInTime}
+                daysInHours={true}
+                intervalDelay={0}
+                precision={3}
+                onComplete={() => setLastSigned(lastSigned)}
+              />}
+            </Button>
           </div>
         </Modal.Body>
         

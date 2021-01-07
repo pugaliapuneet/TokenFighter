@@ -46,14 +46,19 @@ const logoutOfWeb3Modal = async () => {
 };
 const App = () => {
   const [injectedProvider, setInjectedProvider] = useState();
+  const [blockExplorer, setBlockExplorer] = useState("");
 
   // Use your injected provider from 🦊 Metamask or if you don't have it then instantly generate a 🔥 burner wallet.
   const userProvider = useUserProvider(injectedProvider);
   const address = useUserAddress(userProvider);
 
   const loadWeb3Modal = useCallback(async () => {
-    const provider = await web3Modal.connect();
-    setInjectedProvider(new Web3Provider(provider));
+    let provider = await web3Modal.connect();
+    provider = new Web3Provider(provider);
+    setInjectedProvider(provider);
+    const network = await provider.getNetwork();
+    console.log(network);
+    setBlockExplorer("https://" + network.name + "." + "etherscan.io/");
   }, [setInjectedProvider]);
   
   useEffect(() => {
@@ -70,6 +75,7 @@ const App = () => {
           web3Modal={web3Modal}
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
+          blockExplorer={blockExplorer}
         />
       </ModalProvider>
       <main className="mb-3">

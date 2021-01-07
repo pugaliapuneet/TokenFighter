@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import { Button } from 'antd';
+import { Button, Spin } from 'antd';
 import {Col, Row} from 'react-bootstrap';
 
 const Fighters = {
@@ -409,8 +409,7 @@ export function MyFighters({contract, address, getMyCollectionCount}) {
     }
 
     useEffect(() => get());
-    
-    return loading ? <div>Loading...</div> : (
+    return loading ? <h1 className="text-center"><Spin /></h1> : (
         <Row className="mx-0">
             {
                 myFighters.map(element => {

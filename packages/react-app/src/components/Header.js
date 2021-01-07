@@ -14,12 +14,14 @@ const Header = ({
   web3Modal,
   loadWeb3Modal,
   logoutOfWeb3Modal,
+  blockExplorer,
 }) => {
   const { isModalOpen, openModal, closeModal } = useModal();
   const modalButtons = [];
-
+  const blockExplorerLink = (address, blockExplorer) => `${blockExplorer || "https://etherscan.io/"}${"address/"}${address}`;
   const url = useLocation();
-  if (web3Modal) {
+  const etherscanLink = blockExplorerLink(address, blockExplorer);
+  if (web3Modal) {console.log(web3Modal.cachedProvider);
     if (web3Modal.cachedProvider) {
       modalButtons.push(
         <Dropdown>
@@ -45,7 +47,7 @@ const Header = ({
                 </Col>
               </Row>
             </Dropdown.Item>
-            <Dropdown.Item className="text p-4 item" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+            <Dropdown.Item target={"_blank"} href={etherscanLink} className="text p-4 item" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
               View on Etherscan
             </Dropdown.Item>
             <Dropdown.Item className="text p-4 item" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }} key="logoutbutton" onClick={logoutOfWeb3Modal}>

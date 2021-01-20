@@ -64,7 +64,13 @@ const CollectScreen = ({userProvider, address}) => {
     console.log("TX STATUS ", txInformation.transaction.status);
     if(txInformation.transaction.status === "confirmed") {
       console.log("TX Confirmed");
-      init();
+      // Get notified when a transaction is mined
+      userProvider.once(txInformation.transaction.hash, function(transaction) {
+        console.log('Transaction Mined: ' + transaction.transactionHash);
+        // console.log(transaction);
+        init();
+        setClaimLoading(false);
+      });
     }
   }
   // The transactor wraps transactions and provides notificiations
@@ -74,7 +80,9 @@ const CollectScreen = ({userProvider, address}) => {
     if(!TKMainContract) return;
     setClaimLoading(true);
     const returned = await tx(TKMainContract.functions.singIn());
-    setClaimLoading(false);
+    if (returned === undefined) {
+      setClaimLoading(false);
+    }
   }
 
   const buyFighter = async (hash, setLoading) => {

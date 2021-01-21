@@ -320,7 +320,7 @@ const FighterLeft = ({contract, hash}) => {
     useState(() => getCount(), []);
 
     return loading ? <div>loading...</div> : <div>
-        <span style={{ fontSize: '25px' }}>{left === -1 ? '∞' : left}</span> Left
+        <span style={{ fontSize: '18px', marginRight: '0.2em' }}>{left === -1 ? '∞' : left}</span> Left
     </div>;
 }
 
@@ -354,8 +354,8 @@ export function AllFighters({contract, byteBal, buyFighter, getFighterCount}) {
                                     </div>
                                     <div className="mb-5">
                                         <ul className="list-group list-group-horizontal w-100 text-center">
-                                            <li className="list-group-item rounded-0 bg-transparent w-50 text-white border-left-0" style={{ border : '1px solid rgba(255, 255, 255, 0.1)' }}> <span style={{ letterSpacing: '0.02em', color: '#FF00E6', textShadow: '0px 0px 4px rgba(255, 0, 230, 0.8)', fontSize: '25px'}}>{MiningPower*100}</span> Bytes</li>
-                                            <li className="list-group-item rounded-0 bg-transparent w-50 text-white border-right-0" style={{ border : '1px solid rgba(255, 255, 255, 0.1)' }}><FighterLeft contract={contract} hash={ipfs_hash} /></li>
+                                            <li className="list-group-item rounded-0 bg-transparent w-50 text-white border-left-0 d-flex justify-content-center" style={{ border : '1px solid rgba(255, 255, 255, 0.1)', fontSize:'12px', alignItems: 'baseline' }}> <span style={{ letterSpacing: '0.02em', color: '#FF00E6', textShadow: '0px 0px 4px rgba(255, 0, 230, 0.8)', fontSize: '18px', marginRight: '0.4em'}}>{MiningPower*100}</span> Bytes</li>
+                                            <li className="list-group-item rounded-0 bg-transparent w-50 text-white border-right-0 d-flex justify-content-center" style={{ border : '1px solid rgba(255, 255, 255, 0.1)', fontSize:'12px', alignItems: 'baseline' }}><FighterLeft contract={contract} hash={ipfs_hash} /></li>
                                         </ul>
                                     </div>
                                     <div className="text-center w-100" style={{ position : 'absolute', bottom: '-25px' }}>

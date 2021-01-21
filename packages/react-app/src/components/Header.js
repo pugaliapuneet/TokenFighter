@@ -79,7 +79,7 @@ const Header = ({
     <React.Fragment>
       <Row className="text-center mt-2 mx-0">
         <Col className="d-flex align-items-center justify-content-center">
-          <Button variant="outline-light" className="rounded-0 px-4 py-1" onClick={() => openModal()} style={{ borderWidth : '3px', 'boxShadow' : '0px 0px 10px #0AC4FF' }}>
+          <Button variant="outline-light" className="rounded-0 px-4 py-1" onClick={() => openModal()} style={{ borderWidth : '3px', 'boxShadow' : '0px 0px 10px #0AC4FF', fontSize: '14px' }}>
             Play
           </Button>
         </Col>

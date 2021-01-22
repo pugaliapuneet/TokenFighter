@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Button, Spin } from 'antd';
 import {Col, Row} from 'react-bootstrap';
+import '../fonts/NotoMono-Regular.ttf'
 
 const Fighters = {
     "QmZwW6aA3UspgxBXiU66dtECbmN68gWLuxAyqYk3SLECRD": {
@@ -343,13 +344,13 @@ export function AllFighters({contract, byteBal, buyFighter, getFighterCount}) {
                 Object.values(Fighters).map(element => {
                     const {RarityLevel, MiningPower, image, ipfs_hash, name} = element;
                     return (
-                        <Col xs={4} key={ipfs_hash} className="mt-5 mb-3">
+                        <Col md={6} lg={4} key={ipfs_hash} style={{padding: '0px 16px 13px', margin: '0px 0px 40px'}}>
                             <Card className={"rounded-0 border-0" + getFrameClass(RarityLevel) } style={{backgroundColor : 'transparent' }}>
                                 <div className="m-3"  style={{ position : 'relative'}}>
                                     <div style={{ marginTop : '-40px' }}>
                                         <img src={image} className="w-100" alt={name+" image"}/>
                                     </div>
-                                    <div className="text-center" style={{ color : '#414141', letterSpacing: '0.1em' }}>
+                                    <div className="text-center" style={{ color : '#414141', fontFamily: 'Noto Mono , monospace' }}>
                                         <p>Rarity Level: {RarityLevel} <br/>
                                         Mining Power: {MiningPower}</p>
                                     </div>

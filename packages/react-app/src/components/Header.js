@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { Row, Col, Image, Button, Dropdown } from 'react-bootstrap';
+import { Row, Col, Image, Button, Dropdown, Navbar, Nav } from 'react-bootstrap';
 import { Modal, useModal, ModalTransition } from 'react-simple-hook-modal';
 import {useLocation } from 'react-router-dom';
 
@@ -77,90 +77,114 @@ const Header = ({
 
   return (
     <React.Fragment>
-      <Row className="text-center mt-2 mx-0">
-        <Col className="d-flex align-items-center justify-content-center">
+      <div className="container">
+      {/* <Row className="text-center mx-0"> */}
+        <Navbar collapseOnSelect expand="lg" variant="dark">
+        <div className="d-none d-lg-block">
           <Button variant="outline-light" className="rounded-0 px-4 py-1" onClick={() => openModal()} style={{ borderWidth : '3px', 'boxShadow' : '0px 0px 10px #0AC4FF', fontSize: '14px' }}>
-            Play
+              Play
           </Button>
-        </Col>
-        <Col className="d-flex align-items-center justify-content-center"> 
-          <ul className='list-group list-group-horizontal bg-transparent header_navbar'>
-            <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/" ? ' active ' : '')}>
-              <Link className='link' to='/'>
-                Home
-              </Link>
-            </li>
-            <li className='list-group-item bg-transparent border-0 disabled'>
-              <a className='link' href='/'>
-                Farms
-              </a>
-            </li>
-            <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/collect" ? ' active ' : '')}>
-              <Link className='link' to='/collect'>
-                Collect
-              </Link>
-            </li>
-            <li className='list-group-item bg-transparent border-0 disabled'>
-              <a className='link' href='/'>
-                Gov
-              </a>
-            </li>
-            <li className='list-group-item bg-transparent border-0 disabled'>
-              <a className='link' href='/'>
-                Leaderoard
-              </a>
-            </li>
-          </ul>
-        </Col>
-        <Col className="d-flex align-items-center justify-content-center">
-            {modalButtons}
-            {/* Modal for unlocking the wallet */}
-            <Modal
-              modalClassName='modal'
-              id='1'
-              isOpen={isModalOpen}
-              transition={ModalTransition.NONE}
-              onBackdropClick={closeModal}
-            >
-              <div
-                style={{ textAlign: 'center', letterSpacing: 0.5, fontSize: '35px' }}
+        </div>
+        
+          {/* <Col className="d-flex align-items-center justify-content-center"> */}
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mx-auto">
+              
+          {/* </Col> */}
+          {/* <Col className="d-flex align-items-center justify-content-center">  */}
+            <ul className='list-group list-group-horizontal bg-transparent header_navbar'>
+              <Nav.Link>
+              <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/" ? ' active ' : '')} style={{padding: '8px 16px'}}>
+                <Link className='link' to='/' style={{lineHeight: '24px'}}>
+                  Home
+                </Link>
+              </li>
+              </Nav.Link>
+              <Nav.Link>
+              <li className='list-group-item bg-transparent border-0 disabled'style={{padding: '8px 16px'}}>
+                <a className='link' href='/' style={{lineHeight: '24px'}}>
+                  Farms
+                </a>
+              </li>
+              </Nav.Link>
+              <Nav.Link>
+              <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/collect" ? ' active ' : '')} style={{padding: '8px 16px'}}>
+                <Link className='link' to='/collect'  style={{lineHeight: '24px'}}>
+                  Collect
+                </Link>
+              </li>
+              </Nav.Link>
+              <Nav.Link>
+              <li className='list-group-item bg-transparent border-0 disabled' style={{padding: '8px 16px'}}>
+                <a className='link' href='/'  style={{lineHeight: '24px'}}>
+                  Gov
+                </a>
+              </li>
+              </Nav.Link>
+              <Nav.Link>
+              <li className='list-group-item bg-transparent border-0 disabled' style={{padding: '8px 16px'}}>
+                <a className='link' href='/'  style={{lineHeight: '24px'}}>
+                  Leaderoard
+                </a>
+              </li>
+              </Nav.Link>
+            </ul>
+          {/* </Col> */}
+          </Nav>
+      </Navbar.Collapse>
+          <Navbar.Brand className="ml-auto">
+          <Col className="d-flex align-items-center justify-content-center">
+              {modalButtons}
+              {/* Modal for unlocking the wallet */}
+              <Modal
+                modalClassName='modal'
+                id='1'
+                isOpen={isModalOpen}
+                transition={ModalTransition.NONE}
+                onBackdropClick={closeModal}
               >
-                Unlock The Wallet to play the game!
-              </div>
-              <div>
-                {/* <div className='metamask'>
+                <div
+                  style={{ textAlign: 'center', letterSpacing: 0.5, fontSize: '35px' }}
+                >
+                  Unlock The Wallet to play the game!
+                </div>
+                <div>
+                  {/* <div className='metamask'>
+                    {/* <Container> */}
+                  {/* <Image
+                      src={metamask}
+                      alt='metamask'
+                      height='30px'
+                      width='40px'
+                      className='metamask-img'
+                    />{' '} */}
+                  {/* <label className='metamask-text'>Metamask</label>{' '}
+                    <Button className='metamask-button'>Connect</Button>
+                    {/* </Container> */}
+                  {/* </div> */}
+                  {/* <div className='metamask'> */}
                   {/* <Container> */}
-                {/* <Image
-                    src={metamask}
-                    alt='metamask'
-                    height='30px'
-                    width='40px'
-                    className='metamask-img'
-                  />{' '} */}
-                {/* <label className='metamask-text'>Metamask</label>{' '}
-                  <Button className='metamask-button'>Connect</Button>
+                  {/* <Image src={wallet} className='metamask-img' />
+                  <label className='metamask-text'>WalletConnect</label>
+                  <Button className='metamask-button'>Connect</Button> */}
                   {/* </Container> */}
-                {/* </div> */}
-                {/* <div className='metamask'> */}
-                {/* <Container> */}
-                {/* <Image src={wallet} className='metamask-img' />
-                <label className='metamask-text'>WalletConnect</label>
-                <Button className='metamask-button'>Connect</Button> */}
-                {/* </Container> */}
-                {/* </div> */}
-                <Image src={metamask} alt='metamask' />
-                <label>Metamask</label>
-                <Button>Connect</Button>
+                  {/* </div> */}
+                  <Image src={metamask} alt='metamask' />
+                  <label>Metamask</label>
+                  <Button>Connect</Button>
 
-                <Image src={wallet} alt='wallet' />
-                <label>WalletConnect</label>
-                <Button>Connect</Button>
-              </div>
-            </Modal>
-        </Col>
-      </Row>
-      
-      
+                  <Image src={wallet} alt='wallet' />
+                  <label>WalletConnect</label>
+                  <Button>Connect</Button>
+                </div>
+              </Modal>
+          </Col>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{  border: '0px'}}/>
+        </Navbar>
+        
+        {/* </Row> */}
+        </div>
     </React.Fragment>
   );
 };

@@ -13,6 +13,8 @@ import { INFURA_ID, DAI_ADDRESS, DAI_ABI, TKMAIN_ADDRESS, TKMAIN_ABI } from "../
 import save from "./../images/save.svg";
 import save_middle from "./../images/save_middle.svg";
 
+import '../fonts/NotoMono-Regular.ttf'
+
 const mainnetProvider = new JsonRpcProvider("https://kovan.infura.io/v3/"+INFURA_ID)
 
 const CollectScreen = ({userProvider, address}) => {
@@ -135,21 +137,23 @@ const CollectScreen = ({userProvider, address}) => {
       </Row>}
       <Row className="m-0 " >
         <Col className="text-center" md={{ span: 4, offset: 4 }}>
-          <ButtonGroup className='mt-5 mb-2'>
-            <Button variant={view === 'AllFighters' ? 'light' : 'outline-light'}  className='py-1 px-2 border-1 rounded-0 border-white' style={{ letterSpacing: '1px', fontSize: '14px', color: '#242424' }} onClick={() => { setView('AllFighters') }}>
+          <ButtonGroup className='mt-5 mb-2' style={{ fontFamily: 'Noto Mono , monospace'}}>
+            <Button variant={view === 'AllFighters' ? 'light' : 'outline-light'}  className='py-1 px-2 border-1 rounded-0 border-white' style={{ fontSize: '14px', color: '#242424' }} onClick={() => { setView('AllFighters') }}>
               All Fighters ({fighterCount})
             </Button>
-            <Button variant={view === 'MyCollection' ? 'light' : 'outline-light'} className='py-1 px-2 border-1 rounded-0 border-white' style={{ letterSpacing: '1px', fontSize: '14px', color: '#242424' }} onClick={() => { setView('MyCollection') }}>
+            <Button variant={view === 'MyCollection' ? 'light' : 'outline-light'} className='py-1 px-2 border-1 rounded-0 border-white' style={{ fontSize: '14px', color: '#242424' }} onClick={() => { setView('MyCollection') }}>
               My Collection ({myCollectionCount})
             </Button>
             {/* <Button>Right</Button> */}
           </ButtonGroup>
         </Col>
       </Row>
-      <Container>
+      <Container style={{paddingLeft: '2rem', paddingRight: '2rem'}}>
           {/* <Image src={grid} alt='grid' className='collect-grid' /> */}
-          {contract && view === 'AllFighters' && <AllFighters contract={contract} byteBal={byteBal} buyFighter={buyFighter} getFighterCount={getFighterCount}/>}
-          {contract && address && view === 'MyCollection' && <MyFighters contract={contract} address={address} getMyCollectionCount={getMyCollectionCount}/>}
+          <div className="all-cards" style={{margin: "48px 0px 0px"}}>
+            {contract && view === 'AllFighters' && <AllFighters contract={contract} byteBal={byteBal} buyFighter={buyFighter} getFighterCount={getFighterCount}/>}
+            {contract && address && view === 'MyCollection' && <MyFighters contract={contract} address={address} getMyCollectionCount={getMyCollectionCount}/>}
+          </div>
       </Container>
       <Modal show={claimModal} onHide={hideClaimModal} contentClassName="claim_modal rounded-0" centered>
         <Modal.Header closeButton>

@@ -266,3 +266,57 @@ footer{
 .myaccount_dropdown .item:hover{
   background-color: unset;
 }
+
+@media  (max-width: 991px) {
+  .nav-cont
+  {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .head-nav-ver {
+    position: fixed !important;
+    border-radius: 0px !important;
+    right: 0 !important;
+    top: 54px !important;
+    width: 250px;
+    height: calc(100vh - 82px)!important;
+    background-color: #242424 !important;
+    z-index: 1002 !important;
+    transition: all .3s ease !important;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column
+  }
+  a .link{
+    color: white !important;
+  }
+  .header_navbar .active a {
+    /* width: 218px !important;   */
+    /* padding: 0px 80px !important; */
+    /* text-align: center !important; */
+    /* display: flex;
+    justify-content: start;
+    align-items: center; */
+    color: #FF00E6 !important;
+  }
+  .list-group-item {
+    display: flex;
+    justify-content: center;
+    
+    padding: 12.8px 16px !important;
+  }
+  .list-group-item.active {
+    background-color: #313131 !important;
+    width: 250px;
+  }
+  .nav-link {
+    padding: 0px !important;
+  }
+  .navbar {
+    background: rgba(13, 26, 86, 0.9);
+  }
+  
+}

@@ -77,7 +77,7 @@ const Header = ({
 
   return (
     <React.Fragment>
-      <div className="container">
+      <div className="container-lg nav-cont">
       {/* <Row className="text-center mx-0"> */}
         <Navbar collapseOnSelect expand="lg" variant="dark">
         <div className="d-none d-lg-block">
@@ -92,7 +92,7 @@ const Header = ({
               
           {/* </Col> */}
           {/* <Col className="d-flex align-items-center justify-content-center">  */}
-            <ul className='list-group list-group-horizontal bg-transparent header_navbar'>
+            <ul className='list-group list-group-horizontal bg-transparent head-nav-ver header_navbar'>
               <Nav.Link>
               <li className={'list-group-item bg-transparent border-0 '+ (url.pathname === "/" ? ' active ' : '')} style={{padding: '8px 16px'}}>
                 <Link className='link' to='/' style={{lineHeight: '24px'}}>
@@ -132,8 +132,7 @@ const Header = ({
           {/* </Col> */}
           </Nav>
       </Navbar.Collapse>
-          <Navbar.Brand className="ml-auto">
-          <Col className="d-flex align-items-center justify-content-center">
+          <div className="ml-auto d-flex align-items-center justify-content-center">
               {modalButtons}
               {/* Modal for unlocking the wallet */}
               <Modal
@@ -178,9 +177,8 @@ const Header = ({
                   <Button>Connect</Button>
                 </div>
               </Modal>
-          </Col>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{  border: '0px'}}/>
+          </div>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" className="b-0" style={{  border: '0px'}}/>
         </Navbar>
         
         {/* </Row> */}

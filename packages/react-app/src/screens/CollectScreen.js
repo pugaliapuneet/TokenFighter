@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { Button } from 'antd';
+// import { Button } from 'antd';
 import grid from '../images/grid.svg';
-import { Row, Col, ButtonGroup, Container, Modal } from 'react-bootstrap';
+import { Row, Col, ButtonGroup, Button, Container, Modal } from 'react-bootstrap';
 import Countdown from 'react-countdown';
 import {AllFighters, MyFighters} from '../components/Fighters';
 import {  JsonRpcProvider } from "@ethersproject/providers";
@@ -136,12 +136,12 @@ const CollectScreen = ({userProvider, address}) => {
         </Col>
       </Row>}
       <Row className="m-0 " >
-        <Col className="text-center" md={{ span: 4, offset: 4 }}>
-          <ButtonGroup className='mt-5 mb-2' style={{ fontFamily: 'Noto Mono , monospace'}}>
-            <Button variant={view === 'AllFighters' ? 'light' : 'outline-light'}  className='py-1 px-2 border-1 rounded-0 border-white' style={{ fontSize: '14px', color: '#242424' }} onClick={() => { setView('AllFighters') }}>
+        <Col className="text-center" md={{ span: 4, offset: 4 }} >
+          <ButtonGroup className='mt-5 mb-2 tab-bg' style={{ fontFamily: 'Noto Mono , monospace'}}>
+            <Button variant={view === 'AllFighters' ? 'light' : 'outline-light text-white'}  className='py-1 px-2 border-1 rounded-0 border-white tab-btn' style={{ fontSize: '14px', color: '#242424' }} onClick={() => { setView('AllFighters') }}>
               All Fighters ({fighterCount})
             </Button>
-            <Button variant={view === 'MyCollection' ? 'light' : 'outline-light'} className='py-1 px-2 border-1 rounded-0 border-white' style={{ fontSize: '14px', color: '#242424' }} onClick={() => { setView('MyCollection') }}>
+            <Button variant={view === 'MyCollection' ? 'light' : 'outline-light text-white'} className='py-1 px-2 border-1 rounded-0 border-white  tab-btn' style={{ fontSize: '14px', color: '#242424' }} onClick={() => { setView('MyCollection') }}>
               My Collection ({myCollectionCount})
             </Button>
             {/* <Button>Right</Button> */}

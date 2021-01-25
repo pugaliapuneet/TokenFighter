@@ -178,7 +178,7 @@ const Header = ({
                 </div>
               </Modal>
           </div>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" className="b-0" style={{  border: '0px'}}/>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" className="b-0 text-white" style={{ color:'white !important', border: '0px'}}/>
         </Navbar>
         
         {/* </Row> */}

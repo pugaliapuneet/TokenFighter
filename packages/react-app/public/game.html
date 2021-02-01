@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv='content-type' content='text/html; charset=UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Token Fighter</title>
+</head>
+
+<body>
+<img id='loading_img' style="z-index: 101; position: absolute; left: 0px; top: 0px; width: 100%;" src="TK_res/UI/loading.gif" />
+<div class='LFroot'>
+	<div class='container'>
+		<div class='window_caption'>
+			<div class='window_caption_title'>
+				Token Fighter
+			</div>
+			<div class='window_caption_button_bar'>
+				<div class='maximize_button'><span class='unisym'>Resize</span></div>
+				<div class='ProjectFbutton'>
+				</div>
+			</div>
+		</div>
+		<div class='window'>
+			<div class='frontpage'>
+				<div class='frontpage_content'>
+				</div>
+			</div>
+			<div class='settings'>
+			</div>
+			<div class='network_game'>
+				<div class='network_game_menu'>
+					<select class='server_select'>
+					</select>
+					<button class='server_connect'>Connect</button>
+					<button class='network_game_cancel'>Cancel</button>
+					<input class='server_address' type='url' value=''>
+					<textarea class='network_log' readonly></textarea>
+				</div>
+			</div>
+			<div class='gameplay'>
+				<canvas class='canvas' width='0' height='0'></canvas>
+				<div class='top_status'></div>
+				<div class='bottom_status'>
+					<input class='fps' value='0fps'></input>
+					<span class='footnote'></span>
+				</div>
+				<div class='dialog_holder'>
+					<div class='pause_message'></div>
+					<div class='summary_dialog'></div>
+				</div>
+			</div>
+			<div class='character_selection'>
+			</div>
+		</div>
+	</div>
+	<div class='extra_UI container'>
+		<div class='dialog_holder'>
+			<div class='alert_box' style='display:none;'>
+				<span class='alert_message'>Loading...</span>
+				<button class='alert_box_ok'>OK</button>
+			</div>
+		</div>
+	</div>
+	<div class='touch_control_holder'></div>
+	<div class='lobby'>
+		<div class='header'>
+			<div class='nav'>
+				<a>&nbsp;&nbsp;&nbsp;Lobby&nbsp;&nbsp;&nbsp;</a>
+				<a href='#' target='_blank' class='help_button'>&nbsp;?&nbsp;</a>
+				<a class='close_button'>&nbsp;X&nbsp;</a>
+			</div>
+		</div>
+		<iframe class='lobby_window'></iframe>
+	</div>
+</div>
+<pre id='flf-config' style='display:none'>
+{"root":"./","package":"./TK_res"}
+</pre>
+<script data-main="game.js?v=0.1.2-10" src="require.js"></script>
+</body>

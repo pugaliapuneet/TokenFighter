@@ -6,6 +6,7 @@ import Header from './components/Header';
 import HomeScreen from './screens/HomeScreen';
 import Footer from './components/Footer';
 import CollectScreen from './screens/CollectScreen';
+import PlayScreen from './screens/PlayScreen';
 import { ModalProvider } from 'react-simple-hook-modal';
 import { Web3Provider } from "@ethersproject/providers";
 import Web3Modal from "web3modal";
@@ -79,9 +80,18 @@ const App = () => {
         />
       </ModalProvider>
       <main className="mb-3">
-        <Route exact path='/' component={HomeScreen} />
+        <Route exact path='/'>
+          <HomeScreen web3Modal={web3Modal} loadWeb3Modal={loadWeb3Modal} />
+        </Route>
         <Route path='/collect'>
           <CollectScreen userProvider={userProvider} address={address}/>
+        </Route>
+        <Route path='/play'>
+          <PlayScreen 
+            address={address}
+            web3Modal={web3Modal}
+            loadWeb3Modal={loadWeb3Modal}
+          />
         </Route>
       </main>
       <Footer />

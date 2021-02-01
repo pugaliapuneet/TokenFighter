@@ -3,8 +3,10 @@ import React from 'react';
 import logoVisual from '../images/logoVisual.svg';
 
 import { Row, Col, Image } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
-const Main = () => {
+const Main = ({web3Modal, loadWeb3Modal}) => {
+  const history = useHistory();
   return (
     <div>
       <Row className="d-flex justify-content-center mx-0">
@@ -15,7 +17,7 @@ const Main = () => {
       <Row className="mx-0" style={{ marginTop : "-100px" }}>
         <Col>
           <ul className="list-group game_menu">
-            <li >game start</li>
+            <li onClick={() => {return web3Modal && web3Modal.cachedProvider ? history.push('/play') : loadWeb3Modal()}}>game start</li>
             {/* <li className="active">game start</li> */}
             {/* <li>control settings</li> */}
             <li className="disabled">network game (coming soon)</li>

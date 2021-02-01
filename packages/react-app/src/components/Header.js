@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { Row, Col, Image, Button, Dropdown, Navbar, Nav } from 'react-bootstrap';
 import { Modal, useModal, ModalTransition } from 'react-simple-hook-modal';
 import {useLocation } from 'react-router-dom';
@@ -16,6 +16,7 @@ const Header = ({
   logoutOfWeb3Modal,
   blockExplorer,
 }) => {
+  const history = useHistory();
   const { isModalOpen, openModal, closeModal } = useModal();
   const modalButtons = [];
   const blockExplorerLink = (address, blockExplorer) => `${blockExplorer || "https://etherscan.io/"}${"address/"}${address}`;
@@ -81,7 +82,7 @@ const Header = ({
       {/* <Row className="text-center mx-0"> */}
         <Navbar collapseOnSelect expand="lg" variant="dark">
         <div className="d-none d-lg-block">
-          <Button variant="outline-light" className="rounded-0 px-4 py-1" onClick={() => openModal()} style={{ borderWidth : '3px', 'boxShadow' : '0px 0px 10px #0AC4FF', fontSize: '14px' }}>
+          <Button variant="outline-light" className="rounded-0 px-4 py-1" onClick={() => {return web3Modal && web3Modal.cachedProvider ? history.push('/play') : loadWeb3Modal()}} style={{ borderWidth : '3px', 'boxShadow' : '0px 0px 10px #0AC4FF', fontSize: '14px' }}>
               Play
           </Button>
         </div>
